@@ -3,19 +3,116 @@ import Layout from '../layouts/Layout.astro';
 import ContextAlert from '../components/ContextAlert.astro';
 import Markdown from '../components/Markdown.astro';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
+const heroContent = `
+# Your Trusted Legal Partners
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
+**Justice, Integrity, and Excellence** - For over 25 years, we've been providing comprehensive legal solutions with personalized attention and proven results. Our experienced attorneys are dedicated to protecting your rights and achieving the best possible outcomes.
+`;
+
+const aboutContent = `
+## About Our Firm
+
+Founded in 1998, Law & Associates has built a reputation for excellence in legal representation across multiple practice areas. Our team of experienced attorneys combines deep legal expertise with a commitment to personalized client service.
+
+We understand that legal matters can be complex and stressful. That's why we take the time to listen to your concerns, explain your options clearly, and develop strategies tailored to your specific situation. Our goal is to provide you with the highest quality legal representation while making the process as smooth and understandable as possible.
+`;
+
+const statsContent = `
+## Our Track Record
+
+- **25+ Years** of legal excellence
+- **1000+ Cases** successfully resolved
+- **98% Client** satisfaction rate
+- **24/7** availability for urgent matters
 `;
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Law & Associates - Expert Legal Services">
+    <div class="hero-section mb-16">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-6 text-white">Your Trusted Legal Partners</h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                **Justice, Integrity, and Excellence** - For over 25 years, we've been providing comprehensive legal solutions with personalized attention and
+                proven results.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/blobs#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                    Free Consultation
+                </a>
+                <a
+                    href="/blobs#services"
+                    class="border border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors"
+                >
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section class="mb-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">About Our Firm</h2>
+                <Markdown content={aboutContent} class="text-gray-300" />
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-6 text-center">Our Track Record</h3>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">25+</div>
+                        <div class="text-sm text-gray-300">Years of Experience</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">1000+</div>
+                        <div class="text-sm text-gray-300">Cases Resolved</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">98%</div>
+                        <div class="text-sm text-gray-300">Client Satisfaction</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">24/7</div>
+                        <div class="text-sm text-gray-300">Availability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="text-yellow-400 mb-4">★★★★★</div>
+                <p class="text-gray-300 mb-4">
+                    "The team at Law & Associates handled my case with professionalism and care. They kept me informed every step of the way."
+                </p>
+                <div class="font-semibold">- Sarah Johnson</div>
+                <div class="text-sm text-gray-400">Family Law Client</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="text-yellow-400 mb-4">★★★★★</div>
+                <p class="text-gray-300 mb-4">"Outstanding legal representation. They helped us navigate a complex business merger successfully."</p>
+                <div class="font-semibold">- Michael Chen</div>
+                <div class="text-sm text-gray-400">Business Law Client</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="text-yellow-400 mb-4">★★★★★</div>
+                <p class="text-gray-300 mb-4">"Professional, knowledgeable, and compassionate. I couldn't have asked for better legal counsel."</p>
+                <div class="font-semibold">- Lisa Rodriguez</div>
+                <div class="text-sm text-gray-400">Estate Planning Client</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center">
+        <h2 class="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+        <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+            Don't face your legal challenges alone. Contact us today for a confidential consultation and let us help you protect your rights and achieve your
+            goals.
+        </p>
+        <a href="/blobs#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+            Schedule Your Free Consultation
+        </a>
+    </section>
 </Layout>

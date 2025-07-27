@@ -1,63 +1,145 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
 import Markdown from '../components/Markdown.astro';
-import { cacheHeaders, randomInt } from '../utils';
 
-export const prerender = false;
+const aboutContent = `
+# About Law & Associates
 
-const tags = ['/revalidation', 'cats-related', 'all-pets-related'];
-const headers = cacheHeaders(365, tags);
+Founded in 1998, Law & Associates has been a cornerstone of legal excellence in our community for over 25 years. Our firm was built on the principles of integrity, dedication, and unwavering commitment to our clients' success.
 
-Object.entries(headers).map(([k, v]) => {
-    Astro.response.headers.set(k, v);
-});
+## Our Mission
 
-const explainer = `
-This is a server-rendered page, last created at \`${new Date().toUTCString()}\` with a few extra response headers:
+We are committed to providing exceptional legal services with personalized attention to every client. Our goal is to make the legal process as smooth and understandable as possible while achieving the best possible outcomes for our clients.
 
-~~~js
-${JSON.stringify(headers, null, 2)}
-~~~
+## Our Values
 
-Meaning: **for browsers,** this is a non-cacheable page. At the **CDN level,** it *is* cacheable for up to a year (and Netlify also automatically busts the cache on new deployments, by default).
-
-But there's something more: the \`Cache-Tag\` header, in tandem with the [purge API](https://docs.netlify.com/platform/caching/#on-demand-invalidation), allows a developer to invalidate at will any
-pieces of content (pages, JSON responses, or whatnot) based on the tags associated with them. Tags are completely up to you to decide on, and allow for very powerful patterns.
-
-In real-world applications, you may want to use [stale-while-revalidate](https://docs.netlify.com/platform/caching/#stale-while-revalidate-directive) as well, so that end-users don't experience 
-a performance hit as pages are being rebuilt.
-
-Use the button below to invlidate a random tag out of this page's tags, then refresh the page.
+- **Integrity**: We maintain the highest ethical standards in all our dealings
+- **Excellence**: We strive for excellence in every case we handle
+- **Compassion**: We understand that legal matters can be stressful and provide compassionate support
+- **Innovation**: We stay current with legal developments and technology to serve our clients better
 `;
 
-const exampleTag = tags[randomInt(0, tags.length - 1)];
+const teamContent = `
+## Our Legal Team
+
+Our attorneys bring together decades of combined experience across multiple practice areas. Each team member is dedicated to providing personalized, effective legal representation.
+`;
+
+const historyContent = `
+## Our History
+
+### 1998 - Foundation
+Law & Associates was founded by John Smith and Sarah Johnson with a vision to provide accessible, high-quality legal services to individuals and businesses.
+
+### 2005 - Expansion
+The firm expanded to include specialized practice areas in real estate and business law, growing our team to 10 attorneys.
+
+### 2015 - Technology Integration
+We embraced modern technology to improve client communication and case management, making our services more efficient and accessible.
+
+### 2024 - Continued Growth
+Today, we serve clients across multiple states with a team of 25+ attorneys and support staff, maintaining our commitment to personalized service.
+`;
 ---
 
-<Layout title="Revalidation">
-    <h1 class="mb-10">Revalidating Server Content</h1>
-    <Markdown content={explainer} class="mb-10" />
-    <div class="flex flex-wrap gap-4">
-        <button class="revalidate-button btn" data-tag={exampleTag}>Invalidate tag: {exampleTag}</button>
-        <button class="btn" onclick="location.reload()">Reload page</button>
+<Layout title="About Us - Law & Associates">
+    <div class="mb-16">
+        <h1 class="text-4xl font-bold mb-8 text-center">About Our Firm</h1>
+        <Markdown content={aboutContent} class="text-gray-300" />
     </div>
+
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">Our Legal Team</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
+                <div class="w-32 h-32 bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">👨‍💼</div>
+                <h3 class="text-xl font-semibold mb-2">John Smith</h3>
+                <p class="text-blue-400 mb-3">Managing Partner</p>
+                <p class="text-gray-300 text-sm">Specializes in business law and corporate litigation with over 20 years of experience.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
+                <div class="w-32 h-32 bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">👩‍💼</div>
+                <h3 class="text-xl font-semibold mb-2">Sarah Johnson</h3>
+                <p class="text-blue-400 mb-3">Senior Partner</p>
+                <p class="text-gray-300 text-sm">Expert in family law and estate planning with a focus on compassionate client care.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
+                <div class="w-32 h-32 bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">👨‍💼</div>
+                <h3 class="text-xl font-semibold mb-2">Michael Chen</h3>
+                <p class="text-blue-400 mb-3">Partner</p>
+                <p class="text-gray-300 text-sm">Specializes in real estate law and commercial transactions with extensive local knowledge.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
+                <div class="w-32 h-32 bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">👩‍💼</div>
+                <h3 class="text-xl font-semibold mb-2">Lisa Rodriguez</h3>
+                <p class="text-blue-400 mb-3">Associate Attorney</p>
+                <p class="text-gray-300 text-sm">Focuses on civil litigation and personal injury cases with a track record of successful settlements.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
+                <div class="w-32 h-32 bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">👨‍💼</div>
+                <h3 class="text-xl font-semibold mb-2">David Wilson</h3>
+                <p class="text-blue-400 mb-3">Associate Attorney</p>
+                <p class="text-gray-300 text-sm">Expert in criminal defense and appellate practice with a passion for justice.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
+                <div class="w-32 h-32 bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">👩‍💼</div>
+                <h3 class="text-xl font-semibold mb-2">Emily Davis</h3>
+                <p class="text-blue-400 mb-3">Associate Attorney</p>
+                <p class="text-gray-300 text-sm">Specializes in employment law and workplace discrimination cases.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">Our History</h2>
+        <div class="space-y-8">
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="text-2xl font-bold text-blue-400 mr-4">1998</div>
+                    <h3 class="text-xl font-semibold">Foundation</h3>
+                </div>
+                <p class="text-gray-300">
+                    Law & Associates was founded by John Smith and Sarah Johnson with a vision to provide accessible, high-quality legal services to individuals
+                    and businesses.
+                </p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="text-2xl font-bold text-blue-400 mr-4">2005</div>
+                    <h3 class="text-xl font-semibold">Expansion</h3>
+                </div>
+                <p class="text-gray-300">
+                    The firm expanded to include specialized practice areas in real estate and business law, growing our team to 10 attorneys.
+                </p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="text-2xl font-bold text-blue-400 mr-4">2015</div>
+                    <h3 class="text-xl font-semibold">Technology Integration</h3>
+                </div>
+                <p class="text-gray-300">
+                    We embraced modern technology to improve client communication and case management, making our services more efficient and accessible.
+                </p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="text-2xl font-bold text-blue-400 mr-4">2024</div>
+                    <h3 class="text-xl font-semibold">Continued Growth</h3>
+                </div>
+                <p class="text-gray-300">
+                    Today, we serve clients across multiple states with a team of 25+ attorneys and support staff, maintaining our commitment to personalized
+                    service.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center">
+        <h2 class="text-3xl font-bold mb-6">Join Our Team</h2>
+        <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+            We're always looking for talented legal professionals who share our commitment to excellence and client service. If you're interested in joining our
+            team, please contact us.
+        </p>
+        <a href="/blobs#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"> Contact Us </a>
+    </section>
 </Layout>
-
-<script>
-    function revalidate(tag: string) {
-        fetch('/api/revalidate', {
-            method: 'POST',
-            body: JSON.stringify({ tags: [tag] }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        alert(`Invalidated tag: ${tag}`);
-    }
-
-    const revalidateButton = document.querySelectorAll('button.revalidate-button')[0];
-    revalidateButton.addEventListener('click', (e) => {
-        const tag = (e.target as HTMLButtonElement).getAttribute('data-tag');
-        revalidate(tag);
-    });
-</script>

@@ -1,33 +1,180 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Markdown from '../../components/Markdown.astro';
-import ShapeEditor from './_components/ShapeEditor.tsx';
-import { uploadDisabled } from '../../utils';
 import ContextAlert from '../../components/ContextAlert.astro';
 
-const explainer = `
-[Netlify Blobs](https://docs.netlify.com/blobs/overview/) provides an object store for any kind of data, be it JSON, binary, 
-or [really](https://mk.gg/projects/chalkstream) anything else ([really!](https://mk.gg/projects/turbofan)). In this example, the blob store is used to **hold the data of user-generated random blobby shapes**.
+const heroContent = `
+# Expert Legal Services You Can Trust
 
-Below is an Astro island with a React component for editing, uploading and viewing blobs to the blob store 🙂.
+**Justice, Integrity, and Excellence** - Your dedicated legal partners for over 25 years. We provide comprehensive legal solutions with personalized attention and proven results.
 `;
 
-const uploadDisabledText = `
-User uploads are disabled in this site. To run your own and try it out: 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-platform-starter">
-<img src="https://www.netlify.com/img/deploy/button.svg" style="display: inline;" alt="Deploy to Netlify" />
-</a>
+const servicesContent = `
+## Our Practice Areas
+
+### 🏢 **Business Law**
+Corporate formation, contracts, mergers & acquisitions, compliance, and business litigation.
+
+### 🏠 **Real Estate Law**
+Property transactions, development, leasing, zoning, and real estate litigation.
+
+### 👨‍👩‍👧‍👦 **Family Law**
+Divorce, child custody, adoption, prenuptial agreements, and family mediation.
+
+### ⚖️ **Civil Litigation**
+Commercial disputes, personal injury, employment law, and appellate practice.
+
+### 📋 **Estate Planning**
+Wills, trusts, probate, estate administration, and elder law services.
+`;
+
+const whyChooseUs = `
+## Why Choose Our Firm?
+
+- **25+ Years of Experience** - Deep expertise across multiple practice areas
+- **Personalized Approach** - Every client receives individual attention
+- **Proven Track Record** - High success rates and client satisfaction
+- **Transparent Communication** - Clear updates and honest advice
+- **Competitive Rates** - Fair pricing with flexible payment options
+`;
+
+const contactInfo = `
+## Get Your Free Consultation
+
+**Ready to discuss your legal needs?** Contact us today for a confidential consultation.
+
+📞 **Phone:** (555) 123-4567  
+📧 **Email:** info@lawfirm.com  
+📍 **Address:** 123 Legal Plaza, Suite 100, City, State 12345  
+⏰ **Hours:** Monday-Friday 8:00 AM - 6:00 PM
 `;
 ---
 
-<Layout title="Blobs">
-    <ContextAlert
-        addedChecksFunction={() => {
-            return uploadDisabled ? uploadDisabledText : null;
-        }}
-        class="mb-8"
-    />
-    <h1 class="mb-10">Blobs x Blobs</h1>
-    <Markdown content={explainer} class="mb-12" />
-    <ShapeEditor client:load />
+<Layout title="Law Services - Expert Legal Solutions">
+    <div class="hero-section mb-16">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-6 text-white">Expert Legal Services</h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Your trusted legal partners for over 25 years. We provide comprehensive legal solutions with personalized attention and proven results.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"> Free Consultation </a>
+                <a
+                    href="#services"
+                    class="border border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors"
+                >
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section id="services" class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">Our Practice Areas</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="text-3xl mb-4">🏢</div>
+                <h3 class="text-xl font-semibold mb-3">Business Law</h3>
+                <p class="text-gray-300">Corporate formation, contracts, mergers & acquisitions, compliance, and business litigation.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="text-3xl mb-4">🏠</div>
+                <h3 class="text-xl font-semibold mb-3">Real Estate Law</h3>
+                <p class="text-gray-300">Property transactions, development, leasing, zoning, and real estate litigation.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="text-3xl mb-4">👨‍👩‍👧‍👦</div>
+                <h3 class="text-xl font-semibold mb-3">Family Law</h3>
+                <p class="text-gray-300">Divorce, child custody, adoption, prenuptial agreements, and family mediation.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="text-3xl mb-4">⚖️</div>
+                <h3 class="text-xl font-semibold mb-3">Civil Litigation</h3>
+                <p class="text-gray-300">Commercial disputes, personal injury, employment law, and appellate practice.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="text-3xl mb-4">📋</div>
+                <h3 class="text-xl font-semibold mb-3">Estate Planning</h3>
+                <p class="text-gray-300">Wills, trusts, probate, estate administration, and elder law services.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div class="text-3xl mb-4">🛡️</div>
+                <h3 class="text-xl font-semibold mb-3">Criminal Defense</h3>
+                <p class="text-gray-300">DUI, drug offenses, white-collar crimes, and criminal appeals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">Why Choose Our Firm?</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="text-center">
+                <div class="text-4xl mb-4">📈</div>
+                <h3 class="text-lg font-semibold mb-2">25+ Years Experience</h3>
+                <p class="text-gray-300 text-sm">Deep expertise across multiple practice areas</p>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl mb-4">👤</div>
+                <h3 class="text-lg font-semibold mb-2">Personalized Approach</h3>
+                <p class="text-gray-300 text-sm">Every client receives individual attention</p>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl mb-4">🏆</div>
+                <h3 class="text-lg font-semibold mb-2">Proven Track Record</h3>
+                <p class="text-gray-300 text-sm">High success rates and client satisfaction</p>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl mb-4">💬</div>
+                <h3 class="text-lg font-semibold mb-2">Clear Communication</h3>
+                <p class="text-gray-300 text-sm">Transparent updates and honest advice</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+        <h2 class="text-3xl font-bold mb-6 text-center">Get Your Free Consultation</h2>
+        <p class="text-center text-gray-300 mb-8">Ready to discuss your legal needs? Contact us today for a confidential consultation.</p>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">📞</span>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">📧</span>
+                        <span>info@lawfirm.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">📍</span>
+                        <span>123 Legal Plaza, Suite 100<br />City, State 12345</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">⏰</span>
+                        <span>Monday-Friday 8:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Send us a Message</h3>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-white/20 border border-white/30 text-white placeholder-gray-300" />
+                    <input
+                        type="email"
+                        placeholder="Your Email"
+                        class="w-full p-3 rounded bg-white/20 border border-white/30 text-white placeholder-gray-300"
+                    />
+                    <input type="tel" placeholder="Your Phone" class="w-full p-3 rounded bg-white/20 border border-white/30 text-white placeholder-gray-300" />
+                    <textarea
+                        placeholder="Tell us about your case"
+                        rows="4"
+                        class="w-full p-3 rounded bg-white/20 border border-white/30 text-white placeholder-gray-300"></textarea>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded font-semibold transition-colors">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 </Layout>

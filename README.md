@@ -1,8 +1,24 @@
-# Astro on Netlify Platform Starter
+# Law & Associates - Professional Law Firm Website
 
-[Live Demo](https://astro-platform-starter.netlify.app/)
+A modern, professional website for Law & Associates built with Astro.js, Tailwind CSS, and deployed on Netlify.
 
-A modern starter based on Astro.js, Tailwind, and [Netlify Core Primitives](https://docs.netlify.com/core/overview/#develop) (Edge Functions, Image CDN, Blob Store).
+## Features
+
+- 🏛️ **Professional Design** - Modern, clean design with a dark theme
+- 📱 **Responsive Layout** - Mobile-friendly design that works on all devices
+- ⚖️ **Practice Areas** - Comprehensive coverage of legal services
+- 👥 **Team Profiles** - Attorney profiles and firm information
+- 📄 **Legal Resources** - Forms, articles, and educational content
+- 📞 **Contact Forms** - Easy consultation booking and communication
+
+## Practice Areas
+
+- Business Law
+- Real Estate Law
+- Family Law
+- Civil Litigation
+- Estate Planning
+- Criminal Defense
 
 ## Astro Commands
 
@@ -19,7 +35,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## Deploying to Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-platform-starter)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/your-username/law-associates-website)
 
 ## Developing Locally
 
@@ -30,22 +46,34 @@ All commands are run from the root of the project, from a terminal:
 
 1. Clone this repository, then run `npm install` in its root directory.
 
-2. For the starter to have full functionality locally (e.g. edge functions, blob store), please ensure you have an up-to-date version of Netlify CLI. Run:
+2. Start the development server:
 
-```
-npm install netlify-cli@latest -g
-```
-
-3. Link your local repository to the deployed Netlify site. This will ensure you're using the same runtime version for both local development and your deployed site.
-
-```
-netlify link
+```bash
+npm run dev
 ```
 
-4. Then, run the Astro.js development server via Netlify CLI:
+3. Open your browser and visit [localhost:4321](http://localhost:4321).
+
+## Project Structure
 
 ```
-netlify dev
+src/
+├── components/     # Reusable UI components
+├── layouts/        # Page layouts
+├── pages/          # Website pages
+│   ├── blobs/      # Services page
+│   ├── index.astro # Home page
+│   ├── revalidation.astro # About page
+│   └── image-cdn.astro # Resources page
+└── styles/         # Global styles
 ```
 
-If your browser doesn't navigate to the site automatically, visit [localhost:8888](http://localhost:8888).
+## Technologies Used
+
+- [Astro](https://astro.build/) - Static site generator
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Netlify](https://netlify.com/) - Hosting and deployment platform
+
+## License
+
+This project is licensed under the MIT License.
