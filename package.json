@@ -19,6 +19,7 @@
     "tailwindcss": "^4.0.14"
   },
   "devDependencies": {
+    "@types/marked": "^5.0.2",
     "@types/node": "^20.12.7"
   }
 }
