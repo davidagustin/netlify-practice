@@ -2,6 +2,10 @@
 
 A modern, professional website for Law & Associates built with Astro.js, Tailwind CSS, and deployed on Netlify.
 
+## Live Deployment
+
+🌐 **Live Site**: [https://netlify-practice-one.netlify.app](https://netlify-practice-one.netlify.app)
+
 ## Features
 
 - 🏛️ **Professional Design** - Modern, clean design with a dark theme
